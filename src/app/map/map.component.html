@@ -1,0 +1,16 @@
+<div>
+    <mat-form-field>
+        <mat-label>Select Map</mat-label>
+        <mat-select (selectionChange)="selectMap()" [(ngModel)]="mapType">
+            <mat-option value="locateUser">Locate User</mat-option>
+            <mat-option value="geoCoder">Geo Coder</mat-option>
+            <mat-option value="popupOnMarker">PopUp on Marker</mat-option>
+
+            <mat-option value="draggableMarker">Draggable Marker
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<pre id="coordinates" *ngIf="mapType === 'draggableMarker'"
+    class="coordinates">Longitude: {{map.draggerMarkerLatLng?.lng}}<br />Latitude: {{map.draggerMarkerLatLng?.lat}}</pre>
+<div id="map" class="map-container"> </div>

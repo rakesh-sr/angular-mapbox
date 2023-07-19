@@ -10,16 +10,20 @@ import * as mapboxgl from 'mapbox-gl';
 export class MapComponent implements OnInit {
   mapType = '';
   constructor(public map: MapboxService) {}
-  ngOnInit() {}
+  ngOnInit() {
+    //this.map.buildMultiMarkerMap();
+  }
   selectMap() {
     if (this.mapType == 'geoCoder') {
-      this.map.buildMapGeoCoder();
+      this.map.buildMapGeoCoder()
     } else if (this.mapType == 'locateUser') {
       this.map.buildMapLocateUser();
     } else if (this.mapType == 'draggableMarker') {
       this.map.buildMapDraggableMarker();
     } else if (this.mapType == 'popupOnMarker') {
-      this.map.buildMapPoponMarker();
+      this.map.buildMapPoponMarkerClick();
+    } else if (this.mapType == 'MultiMarker') {
+      this.map.buildMultiMarkerMap();
     }
   }
 }
